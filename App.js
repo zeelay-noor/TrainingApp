@@ -1,4 +1,4 @@
-import StatePractice from "./src/screens/StatePractice";
+import Login from "./src/screens/login";
 export default function App() {
-  return <StatePractice />;
+  return <Login />;
 }

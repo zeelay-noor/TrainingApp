@@ -26,7 +26,7 @@ export default function Login() {
       style={styles.container}
     >
       <ImageBackground
-        source={require("../assets/abc.jpg")}
+        source={require("../../assets/abc.jpg")}
         style={styles.background}
         blurRadius={3}
       >

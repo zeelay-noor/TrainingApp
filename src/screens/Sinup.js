@@ -1,27 +1,17 @@
+import React from "react";
 import {
-  StyleSheet,
-  Text,
   View,
   TextInput,
   TouchableOpacity,
-  Image,
+  Text,
   ImageBackground,
+  StyleSheet,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  function handleLogin() {
-    alert("Login button pressed");
-  }
-
-  function handleForgotPassword() {
-    alert("Forgot password pressed");
-  }
-
+export default function SignUp() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -35,27 +25,24 @@ export default function Login() {
         <View style={styles.overlay} />
 
         <View style={styles.contentContainer}>
-          {/* Header Section */}
+          {/* Header */}
           <View style={styles.header}>
-            <Image
-              style={styles.logo}
-              source={{
-                uri: "https://t3.ftcdn.net/jpg/01/71/29/48/360_F_171294824_FDLwEWTzlfVr8iE0qojO0mmai44fdbIj.jpg",
-              }}
-            />
-            <Text style={styles.title} OnChangeText={setEmail}>
-              Welcome Back
-            </Text>
-            <Text style={styles.subtitle} OnChangeText={setPassword}>
-              Sign in to continue
-            </Text>
+            <Text style={styles.title}>Create Account</Text>
+            <Text style={styles.subtitle}>Join us today</Text>
           </View>
 
-          {/* Form Section */}
+          {/* Form */}
           <View style={styles.form}>
             <TextInput
               style={styles.input}
-              placeholder="Email Address"
+              placeholder="Full Name"
+              placeholderTextColor="#999"
+              autoCapitalize="words"
+            />
+
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
               placeholderTextColor="#999"
               keyboardType="email-address"
               autoCapitalize="none"
@@ -68,24 +55,30 @@ export default function Login() {
               secureTextEntry={true}
             />
 
-            <TouchableOpacity onPress={handleForgotPassword}>
-              <Text style={styles.forgotPassword}>Forgot Password?</Text>
-            </TouchableOpacity>
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              placeholderTextColor="#999"
+              secureTextEntry={true}
+            />
           </View>
 
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonText}>LOGIN</Text>
+          {/* Sign Up Button */}
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>SIGN UP</Text>
           </TouchableOpacity>
 
-          <View style={styles.signupContainer}>
-            <Text style={styles.signupText}>Don't have an account? </Text>
+          {/* Login Link */}
+          <View style={styles.loginContainer}>
+            <Text style={styles.loginText}>Already have an account? </Text>
             <TouchableOpacity>
-              <Text style={styles.signupLink}>Sign Up</Text>
+              <Text style={styles.loginLink}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
+
+        <StatusBar style="light" />
       </ImageBackground>
-      <StatusBar style="light" />
     </KeyboardAvoidingView>
   );
 }
@@ -111,18 +104,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 40,
   },
-  logo: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: "#fff",
-  },
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: "#fff",
-    marginTop: 20,
+    marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
@@ -132,40 +118,37 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    backgroundColor: "rgba(255,255,255,0.9)",
     height: 50,
-    borderRadius: 10,
+    width: "100%",
+    backgroundColor: "rgba(255,255,255,0.9)",
+    borderRadius: 8,
     paddingHorizontal: 15,
     marginBottom: 15,
     fontSize: 16,
     color: "#333",
   },
-  forgotPassword: {
-    color: "#fff",
-    textAlign: "right",
-    marginBottom: 20,
-  },
-  loginButton: {
+  button: {
     backgroundColor: "#4a80f0",
     height: 50,
-    borderRadius: 10,
+    borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20,
+    marginTop: 20,
   },
-  loginButtonText: {
+  buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },
-  signupContainer: {
+  loginContainer: {
     flexDirection: "row",
     justifyContent: "center",
+    marginTop: 25,
   },
-  signupText: {
+  loginText: {
     color: "rgba(255,255,255,0.7)",
   },
-  signupLink: {
+  loginLink: {
     color: "#fff",
     fontWeight: "bold",
   },
